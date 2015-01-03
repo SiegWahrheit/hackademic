@@ -62,7 +62,7 @@ function DelInstal($target)
       
 	if(file_exists($filename))
 	{
-	  die("Please change the permissions to all files from installation folder so they can be removed and try again");
+	  die("Please change the permissions to all files from installation folder so they can be removed or remove the installation directory manually");
 	}
 	
 	else
