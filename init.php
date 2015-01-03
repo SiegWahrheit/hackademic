@@ -37,6 +37,41 @@ if (defined('ENVIRONMENT') && ENVIRONMENT == "dev") {
 } else {
     ini_set('display_errors', false);
 }
+
+function DelInstal($target)
+  {
+    foreach(glob("{$target}/*") as $file)
+      {
+	if(is_dir($file)) 
+	{
+	  DelInstal($file);
+	} 
+	else 
+	{
+      	  unlink($file);
+      	}
+      }
+    rmdir($target);
+  }
+  
+  $filename="installation/installer";
+  
+  if(file_exists($filename))
+    {
+      DelInstal($filename);
+      
+	if(file_exists($filename))
+	{
+	  die("Please change the permissions to all files from installation folder so they can be removed and try again");
+	}
+	
+	else
+	{
+	  $filename1="installation";
+	  DelInstal($filename1);
+	}
+     }
+     
 Loader::init();
 $db=new HackademicDB();
 
