@@ -38,7 +38,7 @@ if (defined('ENVIRONMENT') && ENVIRONMENT == "dev") {
     ini_set('display_errors', false);
 }
 
-/*function DelInstal($target)
+function DelInstal($target)
   {
     foreach(glob("{$target}/*") as $file)
       {
@@ -71,7 +71,7 @@ if (defined('ENVIRONMENT') && ENVIRONMENT == "dev") {
 	  DelInstal($filename1);
 	}
      }
-     */
+     
 Loader::init();
 $db=new HackademicDB();
 
